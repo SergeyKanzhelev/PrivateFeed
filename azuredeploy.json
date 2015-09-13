@@ -30,9 +30,9 @@
       ],
       "defaultValue": "0"
     },
-    "someAppSetting": {
+    "apiKey": {
       "type": "string",
-      "defaultValue": "Test App Setting Value"
+      "defaultValue": "{7F2C2BC0-CBEE-41B1-9963-9C4F164CE8C9}"
     },
     "repoUrl": {
       "type": "string"
@@ -80,8 +80,8 @@
           "properties": {
             "appSettings": [
               {
-                "name": "someAppSetting",
-                "value": "[parameters('someAppSetting')]"
+                "name": "apiKey",
+                "value": "[parameters('apiKey')]"
               }
             ]
           }
