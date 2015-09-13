@@ -30,7 +30,7 @@
       ],
       "defaultValue": "0"
     },
-    "apiKey": {
+    "NuGetApiKey": {
       "type": "string",
       "defaultValue": "{7F2C2BC0-CBEE-41B1-9963-9C4F164CE8C9}"
     },
@@ -81,7 +81,7 @@
             "appSettings": [
               {
                 "name": "apiKey",
-                "value": "[parameters('apiKey')]"
+                "value": "[parameters('NuGetApiKey')]"
               }
             ]
           }
