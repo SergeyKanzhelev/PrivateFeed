@@ -30,7 +30,7 @@
       ],
       "defaultValue": "0"
     },
-    "NuGetApiKey": {
+    "NuGetApiKey2": {
       "type": "string",
       "defaultValue": "{7F2C2BC0-CBEE-41B1-9963-9C4F164CE8C9}"
     },
@@ -81,7 +81,7 @@
             "appSettings": [
               {
                 "name": "apiKey",
-                "value": "[parameters('NuGetApiKey')]"
+                "value": "[parameters('NuGetApiKey2')]"
               }
             ]
           }
@@ -98,17 +98,17 @@
             "RepoUrl": "[parameters('repoUrl')]",
             "branch": "[parameters('branch')]",
             "IsManualIntegration": true
-          },
-          { 
-            "apiVersion": "2014-04-01", 
-            "name": "Microsoft.ApplicationInsights.AzureWebSites", 
-            "type": "siteextensions", 
-            "dependsOn": [ 
-              "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]", 
-              "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]" 
-              ], 
-            "properties": { } 
           }
+        },
+        { 
+          "apiVersion": "2014-04-01", 
+          "name": "Microsoft.ApplicationInsights.AzureWebSites", 
+          "type": "siteextensions", 
+          "dependsOn": [ 
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]", 
+            "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]" 
+            ], 
+          "properties": { } 
         }
       ]
     },
