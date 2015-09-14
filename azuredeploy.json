@@ -55,12 +55,22 @@
       }
     },
     {
+      "apiVersion": "2014-04-01",
+      "name": "[parameters('siteName')]",
+      "type": "microsoft.insights/components",
+      "location": "Central US",
+      "dependsOn": [ ],
+      "tags": { "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource" },
+      "properties": { "ApplicationId": "[parameters('siteName')]" }
+    },
+    {
       "apiVersion": "2014-06-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       "location": "[parameters('siteLocation')]",
       "dependsOn": [
-        "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
+        "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]",
+        "[concat(microsoft.insights/components/', parameters('siteName'))]"
       ],
       "tags": {
         "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "empty"
@@ -86,6 +96,10 @@
               {
                 "name": "SCM_SITEEXTENSIONS_FEED_URL",
                 "value": "http://www.siteextensions.net/api/v2/"
+              },
+              {
+                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                "value": "[reference(concat('Microsoft.Web/sites/', parameters('siteName'))).InstrumentationKey]"
               }
             ]
           }
@@ -115,32 +129,6 @@
           "properties": { } 
         }
       ]
-    },
-    {
-      "apiVersion": "2014-04-01",
-      "name": "[parameters('siteName')]",
-      "type": "microsoft.insights/components",
-      "location": "Central US",
-      "dependsOn": [ "[concat('Microsoft.Web/sites/', parameters('siteName'))]" ],
-      "tags": { "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource" },
-      "properties": { "ApplicationId": "[parameters('siteName')]" }
-    },
-    {
-      "apiVersion": "2014-04-01",
-      "type": "config",
-      "name": "web",
-      "dependsOn": [
-        "[concat('microsoft.insights/components/', parameters('siteName'))]",
-        "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
-      ],
-      "properties": {
-        "appSettings": [
-          {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(concat('Microsoft.Web/sites/', parameters('siteName'))).InstrumentationKey]"
-          }
-        ]
-      }
     }
   ]
 }
