@@ -125,7 +125,7 @@
           "dependsOn": [
             "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
             "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
-            "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web']"
+            "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
           ],
           "properties": { }
         }
