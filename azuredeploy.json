@@ -118,15 +118,16 @@
             "IsManualIntegration": true
           }
         },
-        { 
-          "apiVersion": "2014-04-01", 
-          "name": "Microsoft.ApplicationInsights.AzureWebSites", 
-          "type": "siteextensions", 
-          "dependsOn": [ 
-            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]", 
-            "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]" 
-            ], 
-          "properties": { } 
+        {
+          "apiVersion": "2014-04-01",
+          "name": "Microsoft.ApplicationInsights.AzureWebSites",
+          "type": "siteextensions",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+            "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
+            "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web']"
+          ],
+          "properties": { }
         }
       ]
     }
