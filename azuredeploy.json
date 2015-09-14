@@ -30,7 +30,7 @@
       ],
       "defaultValue": "0"
     },
-    "NuGetApiKey2": {
+    "NuGetApiKey": {
       "type": "string",
       "defaultValue": "{7F2C2BC0-CBEE-41B1-9963-9C4F164CE8C9}"
     },
@@ -91,7 +91,7 @@
             "appSettings": [
               {
                 "name": "apiKey",
-                "value": "[parameters('NuGetApiKey2')]"
+                "value": "[parameters('NuGetApiKey')]"
               },
               {
                 "name": "SCM_SITEEXTENSIONS_FEED_URL",
