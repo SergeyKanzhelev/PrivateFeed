@@ -99,7 +99,7 @@
               },
               {
                 "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                "value": "[reference(concat('Microsoft.Web/sites/', parameters('siteName'))).InstrumentationKey]"
+                "value": "[reference(concat('Microsoft.Insights/components/', parameters('siteName'))).InstrumentationKey]"
               }
             ]
           }
