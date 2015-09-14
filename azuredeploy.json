@@ -82,6 +82,10 @@
               {
                 "name": "apiKey",
                 "value": "[parameters('NuGetApiKey2')]"
+              },
+              {
+                "name": "SCM_SITEEXTENSIONS_FEED_URL",
+                "value": "http://www.siteextensions.net/api/v2/"
               }
             ]
           }
