@@ -124,6 +124,23 @@
       "dependsOn": [ "[concat('Microsoft.Web/sites/', parameters('siteName'))]" ],
       "tags": { "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource" },
       "properties": { "ApplicationId": "[parameters('siteName')]" }
+    },
+    {
+      "apiVersion": "2014-04-01",
+      "type": "config",
+      "name": "web",
+      "dependsOn": [
+        "[concat('microsoft.insights/components/', parameters('siteName'))]",
+        "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
+      ],
+      "properties": {
+        "appSettings": [
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(concat('Microsoft.Web/sites/', parameters('siteName'))).InstrumentationKey]"
+          }
+        ]
+      }
     }
   ]
 }
