@@ -7,9 +7,9 @@ using NuGet.Server.DataServices;
 using NuGet.Server.Infrastructure;
 using RouteMagic;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(PrivyFeed.NuGetRoutes), "Start")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(PrivateFeed.NuGetRoutes), "Start")]
 
-namespace PrivyFeed {
+namespace PrivateFeed {
     public static class NuGetRoutes {
         public static void Start() {
             MapRoutes(RouteTable.Routes);
