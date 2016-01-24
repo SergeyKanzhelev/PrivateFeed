@@ -81,27 +81,16 @@
       },
       "resources": [
         {
-          "apiVersion": "2014-04-01",
+          "apiVersion": "2015-08-01",
+          "name": "appsettings",
           "type": "config",
-          "name": "web",
           "dependsOn": [
             "[concat('Microsoft.Web/Sites/', parameters('siteName'))]"
           ],
           "properties": {
-            "appSettings": [
-              {
-                "name": "apiKey",
-                "value": "[parameters('NuGetApiKey')]"
-              },
-              {
-                "name": "SCM_SITEEXTENSIONS_FEED_URL",
-                "value": "http://www.siteextensions.net/api/v2/"
-              },
-              {
-                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                "value": "[reference(concat('Microsoft.Insights/components/', parameters('siteName'))).InstrumentationKey]"
-              }
-            ]
+            "apiKey": "[parameters('NuGetApiKey')]"
+            "SCM_SITEEXTENSIONS_FEED_URL": "http://www.siteextensions.net/api/v2/"
+            "APPINSIGHTS_INSTRUMENTATIONKEY": "[reference(concat('Microsoft.Insights/components/', parameters('siteName'))).InstrumentationKey]"
           }
         },
         {
