@@ -61,7 +61,7 @@
       "location": "Central US",
       "dependsOn": [ ],
       "tags": { "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource" },
-      "properties": { "ApplicationId": "[parameters('siteName')]" }
+      "properties": { "ApplicationId": "SomeString" }
     },
     {
       "apiVersion": "2014-06-01",
