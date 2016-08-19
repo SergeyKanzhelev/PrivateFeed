@@ -88,8 +88,8 @@
             "[concat('Microsoft.Web/Sites/', parameters('siteName'))]"
           ],
           "properties": {
-            "apiKey": "[parameters('NuGetApiKey')]"
-            "SCM_SITEEXTENSIONS_FEED_URL": "http://www.siteextensions.net/api/v2/"
+            "apiKey": "[parameters('NuGetApiKey')]",
+            "SCM_SITEEXTENSIONS_FEED_URL": "http://www.siteextensions.net/api/v2/",
             "APPINSIGHTS_INSTRUMENTATIONKEY": "[reference(concat('Microsoft.Insights/components/', parameters('siteName'))).InstrumentationKey]"
           }
         },
